@@ -11,7 +11,7 @@ require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 
 -- Ensure it is installed
 lsp.ensure_installed({
-  'tsservesr',
+  'tsserver',
   'eslint',
   'rust_analyzer',
   'pyright',
