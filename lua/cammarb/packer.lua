@@ -6,18 +6,33 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  
+  -- File Search
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
     -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
-  use { 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}}
   use('ThePrimeagen/harpoon')
+  
+  -- Appearence
+  use({ 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
+  use({
+    'projekt0n/github-nvim-theme',
+    config = function()
+      require('github-theme').setup({
+         disable_background = true
+      })
+
+      vim.cmd('colorscheme github_dark_high_contrast')
+    end
+  }) 
+  -- Appearence
   use("tpope/vim-fugitive")
   use {
-    'VonHeikemen/lsp-zero.nvim',
-    branch = 'v2.x',
-    requires = {
+      'VonHeikemen/lsp-zero.nvim',
+      branch = 'v2.x',
+      requires = {
       -- LSP Support
       {'neovim/nvim-lspconfig'},             -- Required
       {'williamboman/mason.nvim'},           -- Optional

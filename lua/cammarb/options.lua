@@ -1,20 +1,27 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.opt.guicursor = ""
 
-vim.opt.backspace = '2'
-vim.opt.showcmd = true
-vim.opt.laststatus = 2
-vim.opt.autowrite = true
-vim.opt.cursorline = false
-vim.opt.autoread = true
+vim.opt.nu = true
+vim.opt.relativenumber = true
 
--- use spaces for tabs and whatnot
 vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.shiftround = true
 vim.opt.expandtab = true
 
-vim.cmd [[ set noswapfile ]]
+vim.opt.smartindent = true
 
---Line numbers
-vim.wo.number = true
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
+vim.opt.termguicolors = true
+
+vim.opt.scrolloff = 8
+vim.opt.isfname:append("@-@")
+
+vim.opt.updatetime = 50
