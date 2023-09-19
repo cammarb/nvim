@@ -12,6 +12,7 @@ packer
 - telescope
 - harpoon
 - fugitive
+- lsp
 
 #### To be installed
-- [] lsp
+- [] TBD
