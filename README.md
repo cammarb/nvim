@@ -8,11 +8,11 @@ My Neovim configuration files in lua.
 packer
 
 ### List of plugins
-- treesitter
-- telescope
-- harpoon
-- fugitive
-- lsp
+- [x] treesitter
+- [x] telescope
+- [x] harpoon
+- [x] fugitive
+- [x] lsp
 
 #### To be installed
-- [] TBD
+- [ ] TBD
