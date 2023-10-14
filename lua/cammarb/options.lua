@@ -1,3 +1,4 @@
+vim.opt.shell = "powershell.exe"
 vim.opt.guicursor = ""
 
 vim.opt.nu = true
@@ -32,8 +33,8 @@ vim.opt.clipboard = unnamedplus
 
 -- Diagnostic Settings
 vim.diagnostic.config({
-  virtual_text = false,
+  virtual_text = true,
   underline =true,
 })
 
-vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+-- vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
