@@ -17,20 +17,14 @@ return require('packer').startup(function(use)
   
   -- Appearence
   use({ 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
---  use({
---    'projekt0n/github-nvim-theme',
---    config = function()
---      require('github-theme').setup({
---         disable_background = true
---     })
---
---      vim.cmd('colorscheme github_dark_high_contrast')
---    end
---  }) 
   use({
     "folke/tokyonight.nvim",
     vim.cmd('colorscheme tokyonight-night')
   })
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
 
   -- LSP
   use("tpope/vim-fugitive")

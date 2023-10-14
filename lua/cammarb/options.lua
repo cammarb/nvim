@@ -29,3 +29,11 @@ vim.opt.colorcolumn = "80"
 vim.opt.updatetime = 50
 
 vim.opt.clipboard = unnamedplus
+
+-- Diagnostic Settings
+vim.diagnostic.config({
+  virtual_text = false,
+  underline =true,
+})
+
+vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
