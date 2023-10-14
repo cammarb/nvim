@@ -17,17 +17,22 @@ return require('packer').startup(function(use)
   
   -- Appearence
   use({ 'nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'}})
+--  use({
+--    'projekt0n/github-nvim-theme',
+--    config = function()
+--      require('github-theme').setup({
+--         disable_background = true
+--     })
+--
+--      vim.cmd('colorscheme github_dark_high_contrast')
+--    end
+--  }) 
   use({
-    'projekt0n/github-nvim-theme',
-    config = function()
-      require('github-theme').setup({
-         disable_background = true
-      })
+    "folke/tokyonight.nvim",
+    vim.cmd('colorscheme tokyonight-night')
+  })
 
-      vim.cmd('colorscheme github_dark_high_contrast')
-    end
-  }) 
-  -- Appearence
+  -- LSP
   use("tpope/vim-fugitive")
   use {
       'VonHeikemen/lsp-zero.nvim',
