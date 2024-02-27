@@ -1,3 +1,3 @@
-require("cammarb.options")
-require("cammarb.remap")
-require("cammarb.packer")
+require("cammarb/lazy")
+require("cammarb/options")
+require("cammarb/remap")
