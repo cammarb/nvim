@@ -4,9 +4,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2	
 
-vim.cmd[[colorscheme tokyonight]]
-
-
 vim.g["prettier#autoformat"] = 1
 vim.g["prettier#autoformat_require_pragma"] = 0
 vim.g["prettier#config#max_line_length"] = 80

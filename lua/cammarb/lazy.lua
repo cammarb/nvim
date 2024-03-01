@@ -19,7 +19,7 @@ local plugins = {
       local configs = require("nvim-treesitter.configs")
 
       configs.setup({
-        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "typescript" },
+        ensure_installed = { "lua", "vim", "vimdoc", "javascript", "python", "typescript", "prisma"},
         sync_install = false,
         highlight = { enable = true },
         indent = { enable = true },
@@ -27,20 +27,13 @@ local plugins = {
     end
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
      'prettier/vim-prettier',
   },
 	{
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
-  },
-	{
-		"nvim-lua/plenary.nvim"
-	}
+  	 dependencies = { 'nvim-lua/plenary.nvim' }
+	},
+
 }
 
 local opts = {}
