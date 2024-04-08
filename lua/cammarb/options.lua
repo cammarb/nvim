@@ -14,3 +14,4 @@ vim.opt.swapfile = false
 
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
+-- vim.cmd("colorscheme habamax")
