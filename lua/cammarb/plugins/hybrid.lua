@@ -5,6 +5,6 @@ return {
   config = function()
     require("hybrid").setup({
     })
-    vim.cmd('colorscheme hybrid')
+    --    vim.cmd('colorscheme hybrid')
   end
 }
