@@ -4,8 +4,12 @@ return {
   event = "ColorScheme",
   config = function()
     require('lualine').setup({
-      icons_enabled = true,
-      theme = 'auto',
+      options = {
+        icons_enabled = false,
+        section_separators = '',
+        component_separators = '',
+        theme = 'base16',
+      }
     })
   end
 }
