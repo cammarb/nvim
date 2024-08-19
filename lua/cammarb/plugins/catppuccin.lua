@@ -11,6 +11,10 @@ return {
       --        dark = "mocha",
       --      },
     })
+<<<<<<< HEAD
     --   vim.cmd('colorscheme catppuccin-mocha')
+=======
+    --    vim.cmd('colorscheme catppuccin')
+>>>>>>> bfd1fee (Update remap)
   end
 }
