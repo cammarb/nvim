@@ -1,7 +1,5 @@
 print("Neovim config")
 
-vim.g.mapleader = " "
-
 require("config.lazy")
 
 local set = vim.opt
