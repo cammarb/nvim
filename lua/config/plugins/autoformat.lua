@@ -4,10 +4,10 @@ return {
     config = function()
       local formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "biome" },
         typescript = { "biome" },
         kotlin = { "ktlint" },
-        python = { "black" },
+        rust = { "rustfmt"},
+        yaml = { "yamlfmt" },
       }
 
       require("conform").setup({
