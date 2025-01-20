@@ -14,7 +14,7 @@ return {
 
       local ensure_installed = {
         "lua_ls",
-        "tsserver",
+        "ts_ls",
         "biome",
         "jsonls",
         "yamlls",
@@ -28,7 +28,7 @@ return {
         bashls = true,
         pyright = true,
         biome = true,
-        tsserver = {
+        ts_ls = {
           root_dir = require("lspconfig").util.root_pattern("package.json"),
           single_file = false,
           server_capabilities = {
