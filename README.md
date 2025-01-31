@@ -1,17 +1,21 @@
 # Neovim config
+
 Contains my configuration for Neovim. Currently using lazy.nvim for plugin management.
 
 ## Requirements
+
+- Node.js (npm) : This is mainly for some LSPs
+
 ### Telescope
+
 - #### Ripgrep
+
 https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation
 
 ```bash
 brew install ripgrep
 ```
-```powershell
-winget install BurntSushi.ripgrep.MSVC
-`````
+
 ```bash
-sudo apt-get install ripgrep
+sudo apt install ripgrep
 ```
