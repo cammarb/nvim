@@ -8,8 +8,8 @@ return {
         kotlin = { "ktlint" },
         rust = { "rustfmt"},
         yaml = { "yamlfmt" },
+        bash = { "shfmt" },
       }
-
       require("conform").setup({
         formatters_by_ft = formatters_by_ft,
       })

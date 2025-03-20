@@ -15,20 +15,38 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
+      local languages = {
+        "lua_ls",
+        "rust_analyzer",
+        "kotlin_language_server",
+        "bashls",
+        "yamlls"
+      },
       require("mason").setup({})
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "rust_analyzer",
-          "kotlin_language_server",
-          "bashls",
-        },
+        ensure_installed = languages,
         automatic_installation = true,
       })
 
       -- After setting up mason-lspconfig you may set up servers via lspconfig
-      require("lspconfig").rust_analyzer.setup({})
-      require("lspconfig").lua_ls.setup({})
+      -- require("lspconfig").rust_analyzer.setup({})
+      -- require("lspconfig").lua_ls.setup({})
+      for _, language in ipairs(languages) do
+         if language == "bashls" then
+          require("lspconfig")[language].setup({
+            settings = {
+              bash = {
+                shfmt = {
+                  formatCommand = "shfmt -w",
+                  formatStdin = true,
+                },
+              },
+            },
+          })
+        else
+          require("lspconfig")[language].setup({})
+        end
+      end
     end,
   },
 }
