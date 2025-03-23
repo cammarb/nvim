@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      "saghen/blink.cmp",
       "folke/lazydev.nvim",
       ft = "lua",
       opts = {
@@ -15,6 +16,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
+      local capabilities = require("blink.cmp").get_lsp_capabilities()
       local languages =
         {
           "lua_ls",
@@ -32,13 +34,7 @@ return {
       -- require("lspconfig").rust_analyzer.setup({})
       -- require("lspconfig").lua_ls.setup({})
       for _, language in ipairs(languages) do
-        if language == "bashls" then
-          require("lspconfig")[language].setup({
-            settings = {},
-          })
-        else
-          require("lspconfig")[language].setup({})
-        end
+        require("lspconfig")[language].setup({ capabilities = capabilities })
       end
     end,
   },
