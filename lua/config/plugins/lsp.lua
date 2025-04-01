@@ -24,6 +24,7 @@ return {
           "kotlin_language_server",
           "bashls",
           "yamlls",
+          "pyright",
         }, require("mason").setup({})
       require("mason-lspconfig").setup({
         ensure_installed = languages,

@@ -10,6 +10,7 @@ return {
         yaml = { "yamlfmt" },
         bash = { "shfmt" },
         sh = { "shfmt" },
+        python = { "black" },
       }
       require("conform").setup({
         formatters_by_ft = formatters_by_ft,
