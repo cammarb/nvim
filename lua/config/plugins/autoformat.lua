@@ -14,6 +14,16 @@ return {
       }
       require("conform").setup({
         formatters_by_ft = formatters_by_ft,
+        formatters = {
+          yamlfmt = {
+            command = "yamlfmt",
+            args = {
+              "-in",
+              "-formatter",
+              "eof_newline=true,retain_line_breaks_single=true",
+            },
+          },
+        },
       })
 
       vim.api.nvim_create_autocmd("BufWritePre", {
