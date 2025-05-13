@@ -5,7 +5,7 @@ return {
     priority = 1000,
     config = function()
       require("gruvbox").setup({
-        transparent_background = false,
+        transparent_background = true,
         terminal_colors = true,
         undercurl = true,
         underline = true,
@@ -27,7 +27,7 @@ return {
         palette_overrides = {},
         overrides = {},
         dim_inactive = false,
-        transparent_mode = false,
+        transparent_mode = true,
       })
       vim.cmd("colorscheme gruvbox")
     end,
