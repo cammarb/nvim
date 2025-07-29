@@ -19,9 +19,10 @@ return {
             command = "yamlfmt",
             args = {
               "-in",
-              "-formatter",
-              "eof_newline=true,retain_line_breaks_single=true",
+              "-global_conf",
+              "-print_conf",
             },
+            stdin = true,
           },
         },
       })

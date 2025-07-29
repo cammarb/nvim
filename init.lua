@@ -1,15 +1,17 @@
 require("config.lazy")
 
-local set = vim.opt
+local global = vim.g
+local set = vim.o
+local keymap = vim.keymap
+
+global.mapleader = " "
 
 set.shiftwidth = 2
 set.expandtab = true
 set.number = true
 set.relativenumber = true
-
-vim.opt.termguicolors = true
-
-vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+set.termguicolors = true
+set.swapfile = false
 
 vim.api.nvim_create_autocmd({"VimEnter", "VimResume"}, {
   callback = function()
@@ -23,3 +25,4 @@ vim.api.nvim_create_autocmd({"VimLeave", "VimSuspend"}, {
   end
 })
 
+keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
