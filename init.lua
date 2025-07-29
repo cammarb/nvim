@@ -4,6 +4,7 @@ local global = vim.g
 local opt = vim.opt
 local keymap = vim.keymap
 local api = vim.api
+local lsp = vim.lsp
 
 global.mapleader = " "
 
@@ -13,6 +14,7 @@ opt.number = true
 opt.relativenumber = true
 opt.termguicolors = true
 opt.swapfile = false
+opt.winborder = "rounded"
 
 api.nvim_create_autocmd({ "VimEnter", "VimResume" }, {
   callback = function()
@@ -26,4 +28,8 @@ api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
   end,
 })
 
-keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
+keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+keymap.set("n", "<leader>w", ":write<CR>")
+keymap.set("n", "<leader>q", ":quit<CR>")
+keymap.set("n", "<leader>lf", lsp.buf.format)
+
