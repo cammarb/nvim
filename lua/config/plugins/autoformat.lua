@@ -17,12 +17,8 @@ return {
         formatters = {
           yamlfmt = {
             command = "yamlfmt",
-            args = {
-              "-in",
-              "-global_conf",
-              "-print_conf",
-            },
-            stdin = true,
+            args = { "-formatter eof_newline=true" },
+            stdin = false,
           },
         },
       })
