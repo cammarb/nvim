@@ -21,7 +21,7 @@ return {
         {
           "lua_ls",
           "rust_analyzer",
-          "kotlin_language_server",
+          "kotlin-lsp",
           "bashls",
           "yamlls",
           "pyright",

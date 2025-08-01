@@ -1,10 +1,7 @@
-require("config.lazy")
-
 local global = vim.g
 local opt = vim.opt
 local keymap = vim.keymap
 local api = vim.api
-local lsp = vim.lsp
 
 global.mapleader = " "
 
@@ -31,5 +28,5 @@ api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
 keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
 keymap.set("n", "<leader>w", ":write<CR>")
 keymap.set("n", "<leader>q", ":quit<CR>")
-keymap.set("n", "<leader>lf", lsp.buf.format)
 
+require("config.lazy")
