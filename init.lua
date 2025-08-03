@@ -1,29 +1,24 @@
-local global = vim.g
-local opt = vim.opt
-local keymap = vim.keymap
-local api = vim.api
+vim.global.mapleader = " "
+vim.global.maplocleader = "\\"
 
-global.mapleader = " "
-global.maplocleader = "\\"
-
-opt.shiftwidth = 2
-opt.expandtab = true
-opt.number = true
-opt.relativenumber = true
-opt.termguicolors = true
-opt.swapfile = false
-opt.winborder = "rounded"
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.termguicolors = true
+vim.opt.swapfile = false
+vim.opt.winborder = "rounded"
 
 -- Recover terminal's cursor type
-api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
+vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
   callback = function()
-    opt.guicursor = "a:block-blink"
+    vim.opt.guicursor = "a:block-blink"
   end,
 })
 
-keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
-keymap.set("n", "<leader>w", ":write<CR>")
-keymap.set("n", "<leader>q", ":quit<CR>")
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+vim.keymap.set("n", "<leader>w", ":write<CR>")
+vim.keymap.set("n", "<leader>q", ":quit<CR>")
 
 require("config.lazy")
 
@@ -32,5 +27,6 @@ vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
 
 -- LSP
-vim.lsp.enable('luals')
+vim.lsp.enable('lua_ls')
 vim.lsp.enable('kotlin_lsp')
+
