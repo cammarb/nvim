@@ -39,4 +39,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('kotlin_lsp')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('gh_actions_ls')
 
