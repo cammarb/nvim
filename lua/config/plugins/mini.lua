@@ -1,4 +1,3 @@
--- lua/config/plugins/mini.lua
 return {
   {
     "echasnovski/mini.nvim",
@@ -7,6 +6,6 @@ return {
       gitdiff.setup({})
       local statusline = require("mini.statusline")
       statusline.setup({ use_icons = false })
-    end,
-  },
+    end
+  }
 }
