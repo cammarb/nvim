@@ -4,7 +4,9 @@ Contains my configuration for Neovim. Currently using lazy.nvim for plugin manag
 
 ## Requirements
 
-- Node.js (npm) : This is mainly for some LSPs
+### LSP
+
+- Node.js (npm) 
 
 ### Telescope
 
