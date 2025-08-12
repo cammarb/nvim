@@ -5,12 +5,7 @@ return {
     init = function()
       local is_wsl = vim.fn.has("unix") == 1 and vim.env.WSLENV ~= nil
       local is_win = vim.fn.has("win32") == 1
-      -- PDF
-      --vim.g.vimtex_view_method = "general"
-      -- Windows (WSL)
-      --vim.g.vimtex_view_general_viewer = "SumatraPDF.exe"
-      --vim.g.vimtex_view_general_options = '-reuse-instance -forward-search @tex @line @pdf'
-      -- MacOS
+
       vim.g.vimtex_view_method = "sioyek"
       if is_win or is_wsl then
         vim.g.vimtex_view_sioyek_exe = "sioyek.exe"
