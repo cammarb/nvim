@@ -6,6 +6,7 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+vim.cmd("colorscheme default")
 vim.opt.swapfile = false
 vim.opt.winborder = "rounded"
 
@@ -53,3 +54,4 @@ vim.lsp.enable('yamlls')
 vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('texlab')
+vim.lsp.enable('terraformls')
