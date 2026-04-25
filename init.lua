@@ -1,33 +1,33 @@
-vim.g.mapleader = " "
-vim.g.maplocleader = "\\"
-
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-vim.cmd("colorscheme default")
 vim.opt.swapfile = false
 vim.opt.winborder = "rounded"
 
--- Recover terminal's cursor type
-vim.api.nvim_create_autocmd({ "VimLeave", "VimSuspend" }, {
-  callback = function()
-    vim.opt.guicursor = "a:block-blink"
-  end,
-})
-
-vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
-vim.keymap.set("n", "<leader>w", ":write<CR>")
-vim.keymap.set("n", "<leader>q", ":quit<CR>")
-
-require("config.lazy")
-
--- Set transparent background for the statusline
-vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
+-- Style
+vim.cmd("colorscheme default")
+-- Transparent background
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+-- vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
 vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
 
+-- Plugins
+local gh = function(x) return 'https://github.com/' .. x end
+vim.pack.add({
+  gh('neovim/nvim-lspconfig')
+})
+
 -- LSP
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('kotlin_lsp')
+vim.lsp.enable('yamlls')
+vim.lsp.enable('gh_actions_ls')
+vim.lsp.enable('jsonls')
+-- vim.lsp.enable('texlab')
+-- vim.lsp.enable('terraformls')
+
 vim.cmd("set completeopt+=noselect")
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
@@ -47,11 +47,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
-
-vim.lsp.enable('lua_ls')
-vim.lsp.enable('kotlin_lsp')
-vim.lsp.enable('yamlls')
-vim.lsp.enable('gh_actions_ls')
-vim.lsp.enable('jsonls')
-vim.lsp.enable('texlab')
-vim.lsp.enable('terraformls')
