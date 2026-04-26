@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocleader = "\\"
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.number = true
@@ -28,6 +30,10 @@ vim.lsp.enable('jsonls')
 -- vim.lsp.enable('texlab')
 -- vim.lsp.enable('terraformls')
 
+-- Diagnostics
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+
+-- Completion and formatting
 vim.cmd("set completeopt+=noselect")
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(args)
