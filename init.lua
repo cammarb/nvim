@@ -7,7 +7,6 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.winborder = "rounded"
-
 -- Style
 vim.cmd("colorscheme default")
 -- Transparent background
@@ -27,29 +26,35 @@ vim.lsp.enable('kotlin_lsp')
 vim.lsp.enable('yamlls')
 vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('jsonls')
+vim.lsp.enable('ts_ls')
 -- vim.lsp.enable('texlab')
 -- vim.lsp.enable('terraformls')
-
+vim
 -- Diagnostics
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
 -- Completion and formatting
-vim.cmd("set completeopt+=noselect")
+vim.o.autocomplete = true
+vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+  callback = function(ev)
+    local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+
     if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
+
+    -- Auto-format ("lint") on save.
     if not client:supports_method('textDocument/willSaveWaitUntil')
         and client:supports_method('textDocument/formatting') then
       vim.api.nvim_create_autocmd('BufWritePre', {
         group = vim.api.nvim_create_augroup('my.lsp', { clear = false }),
-        buffer = args.buf,
+        buffer = ev.buf,
         callback = function()
-          vim.lsp.buf.format({ bufnr = args.buf, id = client.id, timeout_ms = 1000 })
+          vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
         end,
       })
     end
   end,
 })
+vim.opt.complete:append('o')
