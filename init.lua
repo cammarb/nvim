@@ -29,7 +29,7 @@ vim.lsp.enable('jsonls')
 vim.lsp.enable('ts_ls')
 -- vim.lsp.enable('texlab')
 -- vim.lsp.enable('terraformls')
-vim
+
 -- Diagnostics
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
