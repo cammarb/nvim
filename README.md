@@ -1,23 +1,22 @@
 # Neovim config
 
-Contains my configuration for Neovim. Currently using lazy.nvim for plugin management.
+Contains my neovim configuration
 
 ## Requirements
 
 ### LSP
 
-- Node.js (npm) 
+- [Homebrew](https://brew.sh/)
 
-### Telescope
+- Node.js (npm, yarn)
 
-- #### Ripgrep
-
-https://github.com/BurntSushi/ripgrep?tab=readme-ov-file#installation
-
-```bash
-brew install ripgrep
+- Go
+```shell
+brew install go
 ```
 
-```bash
-sudo apt install ripgrep
+- Running the `lsp-installer.sh` script, which adds all defined language servers
+
+```shell
+./lsp-installer.sh
 ```
