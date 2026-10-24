@@ -27,6 +27,7 @@ vim.lsp.enable('yamlls')
 vim.lsp.enable('gh_actions_ls')
 vim.lsp.enable('jsonls')
 vim.lsp.enable('ts_ls')
+vim.lsp.enable('rust_analyzer')
 -- vim.lsp.enable('texlab')
 -- vim.lsp.enable('terraformls')
 
