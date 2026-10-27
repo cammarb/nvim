@@ -7,12 +7,9 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.winborder = "rounded"
+
 -- Style
 vim.cmd("colorscheme default")
--- Transparent background
-vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
--- vim.api.nvim_set_hl(0, 'StatusLine', { bg = 'NONE' })
-vim.api.nvim_set_hl(0, 'StatusLineNC', { bg = 'NONE' })
 
 -- Plugins
 local gh = function(x) return 'https://github.com/' .. x end
