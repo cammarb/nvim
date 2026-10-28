@@ -7,6 +7,9 @@ vim.opt.relativenumber = true
 vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.winborder = "rounded"
+-- Case-insensitive search (smartcase: uppercase forces case-sensitive)
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 -- Style
 vim.cmd("colorscheme default")
@@ -14,8 +17,45 @@ vim.cmd("colorscheme default")
 -- Plugins
 local gh = function(x) return 'https://github.com/' .. x end
 vim.pack.add({
-  gh('neovim/nvim-lspconfig')
+	{ src = gh('neovim/nvim-lspconfig') },
+        { src = gh('nvim-mini/mini.pick') },
+        { src = gh('nvim-mini/mini.extra') },
+        { src = gh('nvim-mini/mini.diff') },
 })
+
+-- Fzf, Search, Git
+require('mini.pick').setup({})
+require('mini.extra').setup({})
+require('mini.diff').setup()
+
+local map = function(lhs, rhs, desc)
+  vim.keymap.set('n', lhs, rhs, { desc = desc })
+end
+
+-- Files
+map('<leader>ff', function() MiniPick.builtin.files() end, 'Find files')
+map('<leader>fg', function() MiniPick.builtin.grep_live() end, 'Live grep')
+map('<leader>fb', function() MiniPick.builtin.buffers() end, 'Buffers')
+map('<leader>fh', function() MiniPick.builtin.help() end, 'Help tags')
+map('<leader>fr', function() MiniPick.builtin.resume() end, 'Resume last picker')
+
+-- Git files
+map('<leader>ft', function() MiniExtra.pickers.git_files({ scope = 'tracked' }) end, 'Git tracked files')
+map('<leader>fm', function() MiniExtra.pickers.git_files({ scope = 'modified' }) end, 'Git modified files')
+map('<leader>fu', function() MiniExtra.pickers.git_files({ scope = 'untracked' }) end, 'Git untracked files')
+map('<leader>fs', function()
+  MiniPick.builtin.cli(
+    { command = { 'git', 'diff', '--cached', '--name-only' } },
+    { source = { name = 'Git staged files' } }
+  )
+end, 'Git staged files')
+
+-- Git hunks (preview shows the diff)
+map('<leader>gh', function() MiniExtra.pickers.git_hunks({ scope = 'unstaged' }) end, 'Unstaged hunks')
+map('<leader>gH', function() MiniExtra.pickers.git_hunks({ scope = 'staged' }) end, 'Staged hunks')
+
+-- mini.diff overlay
+map('<leader>go', function() MiniDiff.toggle_overlay(0) end, 'Toggle diff overlay')
 
 -- LSP
 vim.lsp.enable('lua_ls')
