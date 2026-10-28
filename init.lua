@@ -24,8 +24,8 @@ vim.pack.add({
 })
 
 -- Fzf, Search, Git
-require('mini.pick').setup({})
-require('mini.extra').setup({})
+require('mini.pick').setup()
+require('mini.extra').setup()
 require('mini.diff').setup()
 
 local map = function(lhs, rhs, desc)
