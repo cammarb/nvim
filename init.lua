@@ -30,7 +30,7 @@ require('mini.extra').setup()
 local pick = MiniPick.builtin
 local extra = MiniExtra.pickers
 
-vim.keymap.set('n', '<leader>ff', pick.files)
+vim.keymap.set('n', '<leader>ff', function() pick.files({ tool = 'git' }) end)
 vim.keymap.set('n', '<leader>fg', pick.grep_live)
 vim.keymap.set('n', '<leader>fb', pick.buffers)
 vim.keymap.set('n', '<leader>fr', pick.resume)
@@ -134,3 +134,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+local lsp_pickers = {
+  grr = 'references',
+  gri = 'implementation',
+  grt = 'type_definition',
+}
+
+for key, scope in pairs(lsp_pickers) do
+  vim.keymap.set('n', key, function()
+    MiniExtra.pickers.lsp({ scope = scope })
+  end, { desc = 'LSP ' .. scope })
+end
