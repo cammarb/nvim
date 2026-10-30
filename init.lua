@@ -117,7 +117,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
     end
 
-    -- Auto-format ("lint") on save.
+    if client:supports_method('textDocument/codeLens') then
+      vim.lsp.codelens.enable(true, { bufnr = ev.buf })
+    end
+
+    -- Auto-format on save.
     if not client:supports_method('textDocument/willSaveWaitUntil')
         and client:supports_method('textDocument/formatting') then
       vim.api.nvim_create_autocmd('BufWritePre', {
