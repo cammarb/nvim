@@ -108,7 +108,7 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
 -- Completion and formatting
 vim.o.autocomplete = true
-vim.opt.completeopt = { 'menuone', 'noselect' }
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(ev)
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
